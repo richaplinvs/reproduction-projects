@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:TabbedSelectionIssue"
+             x:Class="TabbedSelectionIssue.MyTabbedPage"
+             Title="MyTabbedPage">
+    <TabbedPage.Children>
+        <ContentPage Title="Tab 1">
+            <ContentPage.IconImageSource>
+                <FontImageSource Glyph="&#xf007;" FontFamily="FontAwesome6FreeRegular" Size="24" />
+            </ContentPage.IconImageSource>
+            <ContentPage.Content>
+                <Label Text="Tab 1 Content" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </ContentPage.Content>
+        </ContentPage>
+        <ContentPage Title="Tab 2">
+            <ContentPage.IconImageSource>
+                <FontImageSource Glyph="&#xf06e;" FontFamily="FontAwesome6FreeRegular" Size="24" />
+            </ContentPage.IconImageSource>
+            <ContentPage.Content>
+                <Label Text="Tab 2 Content" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </ContentPage.Content>
+        </ContentPage>
+        <ContentPage Title="Tab 3">
+            <ContentPage.IconImageSource>
+                <FontImageSource Glyph="&#xf0f8;" FontFamily="FontAwesome6FreeRegular" Size="24" />
+            </ContentPage.IconImageSource>
+            <ContentPage.Content>
+                <Label Text="Tab 3 Content" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </ContentPage.Content>
+        </ContentPage>
+        <ContentPage Title="Tab 4" IconImageSource="symbols_30_28.png">
+            <ContentPage.Content>
+                <Label Text="Tab 4 Content" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </ContentPage.Content>
+        </ContentPage>
+    </TabbedPage.Children>
+</TabbedPage>
