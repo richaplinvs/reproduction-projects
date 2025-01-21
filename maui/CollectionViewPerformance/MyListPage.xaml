@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ListPerformanceIssue"
+             x:Class="ListPerformanceIssue.MyListPage"
+             Title="CollectionView">
+    <ContentPage.BindingContext>
+        <vm:MyListPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <CollectionView
+            ItemsSource="{Binding Items}"
+            Margin="0,10">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="55"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="80"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <Border Grid.Row="0"
+                                Grid.Column="0"
+                                StrokeShape="RoundRectangle 5"
+                                Stroke="Transparent"
+                                Padding="0">
+                            <Border.Shadow>
+                                <Shadow Brush="Black"
+                                        Offset="0,2"
+                                        Radius="6"
+                                        Opacity="0.8"/>
+                            </Border.Shadow>
+
+                            <Grid ColumnSpacing="0"
+                                  HeightRequest="45">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="22"/>
+                                    <ColumnDefinition Width="128"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       Text="{Binding Text0}"
+                                       FontFamily="FontAwesomeProSolid"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="End"
+                                       FontSize="{StaticResource MicroFontSize}"
+                                       TextColor="White"
+                                       BackgroundColor="Red"/>
+
+                                <Label Grid.Row="1"
+                                       Grid.Column="0"
+                                       Text="1"
+                                       FontSize="10"
+                                       FontAttributes="Bold"
+                                       TextColor="White"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       BackgroundColor="Red"/>
+
+                                <Label Grid.Row="0"
+                                       Grid.RowSpan="2"
+                                       Grid.Column="1"
+                                       HeightRequest="45"
+                                       Text="{Binding Text1}"
+                                       CharacterSpacing="0"
+                                       FontFamily="UKNumberPlate"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       BackgroundColor="Pink"
+                                       FontSize="28"
+                                       TextColor="Black"/>
+                            </Grid>
+                        </Border>
+
+                        <Grid Grid.Row="0"
+                              Grid.Column="1"
+                              Margin="2,0,2,0"
+                              VerticalOptions="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="14"/>
+                                <RowDefinition Height="14"/>
+                                <RowDefinition Height="14"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0"
+                                   Text="{Binding Text2}"
+                                   FontSize="{StaticResource MicroFontSize}"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Start"
+                                   LineBreakMode="TailTruncation"/>
+
+                            <Label Grid.Row="1"
+                                   Text="{Binding Text3}"
+                                   FontSize="{StaticResource MicroFontSize}"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Start"
+                                   LineBreakMode="TailTruncation"/>
+
+                            <Label Grid.Row="2"
+                                   Text="{Binding Text4}"
+                                   FontSize="{StaticResource MicroFontSize}"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Start"
+                                   LineBreakMode="TailTruncation"/>
+
+                        </Grid>
+
+                        <Image Source="dotnet_bot.png"
+                               WidthRequest="155"
+                               HeightRequest="100"
+                               Grid.Row="1"
+                               Grid.RowSpan="2"
+                               Grid.Column="0"/>
+
+
+
+                        <Label  Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="5,0,0,0"
+                                Text="{Binding Text5}"
+                                FontSize="{StaticResource MediumFontSize}"
+                                FontAttributes="Bold"
+                                LineBreakMode="TailTruncation"
+                                HorizontalTextAlignment="Start"
+                                VerticalTextAlignment="Center"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Start"/>
+
+                        <Grid Grid.Row="2"
+                              Grid.Column="1"
+                              ColumnSpacing="2"
+                              VerticalOptions="End"
+                              Margin="5,0,0,5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="18"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="65"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0"
+                                   Grid.Column="0"
+                                   HorizontalTextAlignment="Start"
+                                   VerticalTextAlignment="Center"
+                                   Text="&#x26A0;"
+                                   TextColor="Orange"
+                                   FontSize="{StaticResource SmallFontSize}"/>
+                            <Border Grid.Row="0"
+                                    Grid.Column="1"
+                                    BackgroundColor="{Binding AColor}"
+                                    StrokeShape="RoundRectangle 3"
+                                    Padding="0">
+                                <Label Text="{Binding AText}"
+                                       TextColor="White"
+                                       FontSize="{StaticResource MicroFontSize}"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       FontAttributes="Bold"/>
+                            </Border>
+                            <Label Grid.Row="0"
+                                   Grid.Column="2"
+                                   Text="{Binding ANumber, StringFormat='{0}'}"
+                                   FontSize="{StaticResource MicroFontSize}"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Start"
+                                   VerticalTextAlignment="Center"/>
+                        </Grid>
+
+
+                        <Grid Grid.Row="0"
+                              Grid.RowSpan="3"
+                              Grid.Column="2">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="40"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="18"/>
+                                <RowDefinition Height="18"/>
+                                <RowDefinition Height="18"/>
+                                <RowDefinition Height="18"/>
+                                <RowDefinition Height="18"/>
+                                <RowDefinition Height="18"/>
+                                <RowDefinition Height="18"/>
+                                <RowDefinition Height="18"/>
+                            </Grid.RowDefinitions>
+
+
+                            <Border
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                    WidthRequest="40"
+                                    HeightRequest="18"
+                                    BackgroundColor="{Binding BColor}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3"/>
+                                </Border.StrokeShape>
+                                    <Label FontSize="{StaticResource MicroFontSize}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           Text="{Binding BText}"
+                                           TextColor="{Binding CColor}"/>
+                            </Border>
+                            <Border
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                    WidthRequest="40"
+                                    HeightRequest="18"
+                                    BackgroundColor="{Binding BColor}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3"/>
+                                </Border.StrokeShape>
+                                    <Label FontSize="{StaticResource MicroFontSize}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           Text="{Binding BText}"
+                                           TextColor="{Binding CColor}"/>
+                            </Border>
+                            <Border
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                    WidthRequest="40"
+                                    HeightRequest="18"
+                                    BackgroundColor="{Binding BColor}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3"/>
+                                </Border.StrokeShape>
+                                    <Label FontSize="{StaticResource MicroFontSize}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           Text="{Binding BText}"
+                                           TextColor="{Binding CColor}"/>
+                            </Border>
+                            <Border
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                    WidthRequest="40"
+                                    HeightRequest="18"
+                                    BackgroundColor="{Binding BColor}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3"/>
+                                </Border.StrokeShape>
+                                    <Label FontSize="{StaticResource MicroFontSize}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           Text="{Binding BText}"
+                                           TextColor="{Binding CColor}"/>
+                            </Border>
+                            <Border
+                                Grid.Row="4"
+                                Grid.Column="0"
+                                    WidthRequest="40"
+                                    HeightRequest="18"
+                                    BackgroundColor="{Binding BColor}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3"/>
+                                </Border.StrokeShape>
+                                    <Label FontSize="{StaticResource MicroFontSize}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           Text="{Binding BText}"
+                                           TextColor="{Binding CColor}"/>
+                            </Border>
+                            <Border
+                                Grid.Row="5"
+                                Grid.Column="0"
+                                    WidthRequest="40"
+                                    HeightRequest="18"
+                                    BackgroundColor="{Binding BColor}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3"/>
+                                </Border.StrokeShape>
+                                    <Label FontSize="{StaticResource MicroFontSize}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           Text="{Binding BText}"
+                                           TextColor="{Binding CColor}"/>
+                            </Border>
+                            <Border
+                                Grid.Row="6"
+                                Grid.Column="0"
+                                    WidthRequest="40"
+                                    HeightRequest="18"
+                                    BackgroundColor="{Binding BColor}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3"/>
+                                </Border.StrokeShape>
+                                    <Label FontSize="{StaticResource MicroFontSize}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           Text="{Binding BText}"
+                                           TextColor="{Binding CColor}"/>
+                            </Border>
+                            <Border
+                                Grid.Row="7"
+                                Grid.Column="0"
+                                    WidthRequest="40"
+                                    HeightRequest="18"
+                                    BackgroundColor="{Binding BColor}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3"/>
+                                </Border.StrokeShape>
+                                    <Label FontSize="{StaticResource MicroFontSize}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           Text="{Binding BText}"
+                                           TextColor="{Binding CColor}"/>
+                            </Border>
+
+                            
+                            <Border
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                    WidthRequest="40"
+                                    HeightRequest="18"
+                                    BackgroundColor="{Binding BColor}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3"/>
+                                </Border.StrokeShape>
+                                    <Label FontSize="{StaticResource MicroFontSize}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           Text="{Binding BText}"
+                                           TextColor="{Binding CColor}"/>
+                            </Border>
+                            <Border
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                    WidthRequest="40"
+                                    HeightRequest="18"
+                                    BackgroundColor="{Binding BColor}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3"/>
+                                </Border.StrokeShape>
+                                    <Label FontSize="{StaticResource MicroFontSize}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           Text="{Binding BText}"
+                                           TextColor="{Binding CColor}"/>
+                            </Border>
+                            <Border
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                    WidthRequest="40"
+                                    HeightRequest="18"
+                                    BackgroundColor="{Binding BColor}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3"/>
+                                </Border.StrokeShape>
+                                    <Label FontSize="{StaticResource MicroFontSize}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           Text="{Binding BText}"
+                                           TextColor="{Binding CColor}"/>
+                            </Border>
+                            <Border
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                    WidthRequest="40"
+                                    HeightRequest="18"
+                                    BackgroundColor="{Binding BColor}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3"/>
+                                </Border.StrokeShape>
+                                    <Label FontSize="{StaticResource MicroFontSize}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           Text="{Binding BText}"
+                                           TextColor="{Binding CColor}"/>
+                            </Border>
+                            <Border
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                    WidthRequest="40"
+                                    HeightRequest="18"
+                                    BackgroundColor="{Binding BColor}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3"/>
+                                </Border.StrokeShape>
+                                    <Label FontSize="{StaticResource MicroFontSize}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           Text="{Binding BText}"
+                                           TextColor="{Binding CColor}"/>
+                            </Border>
+                            <Border
+                                Grid.Row="5"
+                                Grid.Column="1"
+                                    WidthRequest="40"
+                                    HeightRequest="18"
+                                    BackgroundColor="{Binding BColor}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3"/>
+                                </Border.StrokeShape>
+                                    <Label FontSize="{StaticResource MicroFontSize}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           Text="{Binding BText}"
+                                           TextColor="{Binding CColor}"/>
+                            </Border>
+                            <Border
+                                Grid.Row="6"
+                                Grid.Column="1"
+                                    WidthRequest="40"
+                                    HeightRequest="18"
+                                    BackgroundColor="{Binding BColor}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3"/>
+                                </Border.StrokeShape>
+                                    <Label FontSize="{StaticResource MicroFontSize}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           Text="{Binding BText}"
+                                           TextColor="{Binding CColor}"/>
+                            </Border>
+                            <Border
+                                Grid.Row="7"
+                                Grid.Column="1"
+                                    WidthRequest="40"
+                                    HeightRequest="18"
+                                    BackgroundColor="{Binding BColor}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3"/>
+                                </Border.StrokeShape>
+                                    <Label FontSize="{StaticResource MicroFontSize}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           Text="{Binding BText}"
+                                           TextColor="{Binding CColor}"/>
+                            </Border>
+
+
+                        </Grid>
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>
