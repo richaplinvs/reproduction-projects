@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GlyphRecycledBitmapRepro.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="15">
+
+            <Label x:Name="StatusLabel"
+                   Text="1. Enable Developer options -> Don't keep activities&#10;2. Press Home&#10;3. Reopen the app from Recents"
+                   FontSize="14" />
+
+            <!-- Buttons whose icon comes from a FontImageSource.
+                 On Android these are MaterialButton icons (a LayerDrawable compound
+                 drawable on a TextView), loaded through Glide via MauiCustomTarget. -->
+            <Button Text="Glyph A"
+                    Clicked="OnChurnClicked"
+                    ContentLayout="Left,10">
+                <Button.ImageSource>
+                    <FontImageSource FontFamily="OpenSansRegular"
+                                     Glyph="A"
+                                     Size="35"
+                                     Color="Red" />
+                </Button.ImageSource>
+            </Button>
+
+            <Button Text="Glyph B"
+                    Clicked="OnChurnClicked"
+                    ContentLayout="Left,10">
+                <Button.ImageSource>
+                    <FontImageSource FontFamily="OpenSansRegular"
+                                     Glyph="B"
+                                     Size="35"
+                                     Color="Green" />
+                </Button.ImageSource>
+            </Button>
+
+            <!-- Same glyph on an Image, for comparison: this goes through the
+                 ImageView path (MauiCustomViewTarget), which PR #12310 fixed. -->
+            <Image HeightRequest="35">
+                <Image.Source>
+                    <FontImageSource FontFamily="OpenSansRegular"
+                                     Glyph="C"
+                                     Size="35"
+                                     Color="Blue" />
+                </Image.Source>
+            </Image>
+
+            <VerticalStackLayout x:Name="GeneratedButtons"
+                                 Spacing="10" />
+
+            <Button Text="Churn glyph cache"
+                    Clicked="OnChurnClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
