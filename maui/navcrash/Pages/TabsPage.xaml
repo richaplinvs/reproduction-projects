@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:pages="clr-namespace:NavCrash.Pages"
+            x:Class="NavCrash.Pages.TabsPage">
+    <pages:DetailsPage Title="Details" />
+    <pages:ListPage Title="List" />
+    <pages:PlainPage Title="Notes" />
+    <pages:PlainPage Title="More" />
+</TabbedPage>
